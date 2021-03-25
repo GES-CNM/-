@@ -1,0 +1,11 @@
+function dy=vehicle2dofmodel(t,y,tf,delta,u)
+a=1.463;
+b=1.585;
+k1=-62618;
+k2=-110185;
+Iz=3885;
+m=1818.2;
+delta=interp1(tf,delta,t,'linear');
+% dy(1)=(k1*((y(1)/u)+a*y(2)/u-delta)+k2*(y(1)-b*y(2)/u)-m*u*y(2))/m;
+% dy(2)=(a*k1*(y(1)+a*y(2)/u-delta)-b*k2*(y(1)-b*y(2)/u))/Iz;
+dy=[(k1*((y(1)/u)+a*y(2)/u-delta)+k2*(y(1)-b*y(2)/u)-m*u*y(2))/m;(a*k1*(y(1)+a*y(2)/u-delta)-b*k2*(y(1)-b*y(2)/u))/Iz]
